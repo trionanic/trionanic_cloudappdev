@@ -1,10 +1,9 @@
-<h1> Hello World </h1>
+<h1> Hello World <%= @result %>   </h1>
 
-<%= form_with URL:"say_hello", local:true,
-    data:{turbo:false} do |f| %>
+<%= form_with URL:"/hello", local:true,data:{turbo:false} do |f| %>
 	
-	<%= text_field_tag :name %>
+	<%= text_field_tag :input_name %>
 	<%= submit_tag "Submit:" %>
 	
 	<% end %>
-	<hr>
+	<hr/> 
