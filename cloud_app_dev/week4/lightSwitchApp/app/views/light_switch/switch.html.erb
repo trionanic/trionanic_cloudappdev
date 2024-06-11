@@ -1,0 +1,30 @@
+<h1> Light Switch </h1>
+
+
+
+<%= form_with url: "/light_switch", local: true , data: {turbo: false} do |f| %>
+	  
+	  <!-- initial value for the switch which will be submitted to the server  -->
+	  <%= hidden_field_tag 'status', false %>
+	   <!-- this button is disabled if the light is already off  -->
+	<%= submit_tag  "Turn off", disabled: !@light_switch, class: "btn" %>
+    <%end %>
+	
+	
+	<% if @light_switch %>
+	    The light is on
+	<% else %>
+	    The light is off
+	<% end %>
+	
+	<%= form_with url: "/light_switch", local: true , data: {turbo: false} do |f| %>
+	  
+	  <!-- initial value for the switch which will be submitted to the server  -->
+	  <%= hidden_field_tag 'status', true %>
+	     <!-- this button is disabled if the light is already on  -->
+	  <%= submit_tag "Turn on", disabled: @light_switch, class: "btn" %>
+    <%end %>
+
+
+	
+<hr/>
