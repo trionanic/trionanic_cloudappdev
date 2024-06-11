@@ -18,3 +18,7 @@ myPets.push(rover)
 for i in 0..myPets.length()-1
   myPets[i].speak
   end
+  
+unknown = Animal.new("Dinosaur",100000);
+unknown.breath
+unknown.speak

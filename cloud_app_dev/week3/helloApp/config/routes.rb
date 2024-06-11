@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
+  # use the hello controller and the hello html page 
+  #root :controller=>'hello' , :action=>'hello'
   
-  root :controller=>'hello' , :action=>'hello'
+  # post '/', :controller=>'hello', :action=>'say_hello'
   
-  post '/', :controller=>'hello', :action=>'say_hello'
-  get '/hello', :controller=>'hello', :action=>'say_hello'
+  # map get on hello to  HelloController and its hello method 
+  get '/hello', :controller=>'hello', :action=>'hello'
   get '/say_hello', :controller=>'hello', :action=>'say_hello'
   post '/say_hello', :controller=>'hello', :action=>'say_hello'
   post '/hello', :controller=>'hello', :action=>'say_hello'
