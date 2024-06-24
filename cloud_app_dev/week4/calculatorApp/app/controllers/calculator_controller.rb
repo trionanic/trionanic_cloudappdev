@@ -29,9 +29,9 @@ class CalculatorController < ApplicationController
 	# # do the calculation here!
 	# case @operation 
 		  # when "+"  then @answer = @num1.to_i + @num2.to_i;  
-		  # when "-" then @answer = @num1.to_i + @num2.to_i;
-		  # when "*" then @answer =   @num1.to_i + @num2.to_i;
-		  # when "%" then @answer =  @num1.to_i + @num2.to_i;
+		  # when "-" then @answer = @num1.to_i - @num2.to_i;
+		  # when "*" then @answer =   @num1.to_i * @num2.to_i;
+		  # when "%" then @answer =  @num1.to_i % @num2.to_i;
 				
 		# end
 	

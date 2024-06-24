@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+ 
+protect_from_forgery unless: -> {request.format.json?}
+  
   before_action :set_todo, only: %i[ show edit update destroy ]
 
   # GET /todos or /todos.json

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+    <meta charset="utf-8">
+    <title>Todo HTML Client</title>
+</head>
+<body onload="loadData()">
+    <h2>Todo Client</h2>
+    <div id="todos">
+        <script>
+            async function loadData(){
+             var url = "http://localhost:3000/todos"
+             var response = await fetch(url, {headers: {'Accept': 'application/json'}})
+             var data = await response.json()
+             var div = ''
+
+             for(var i=0; i < data.length; i++){
+                var completed = 'Not completed'
+                if (data[i]['completed']){
+                    completed = 'Completed'
+                }
+                div += completed + ':' + data[i]['title'] + '<br/><br/>'
+             }
+             console.log(div)
+             document.getElementById('todos').innerHTML = div
+            }
+        </script>
+    </div>
+</body>
+</html>

@@ -12,9 +12,13 @@ class ArithmeticCalculator
 	result = n1 * n2
 	end 
 
-	def self.divide(n1, n2) 
-	result = n1 / n2
+	def self.divide(n1, n2)
+    if n2 == 0 	
+	   result = "Zero divide. Please try again"
+	else 
+	    result = n1 / n2
 	end 
+	end
 	
 	def self.doTheMath (n1, n2, operator) 
 	
