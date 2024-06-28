@@ -21,6 +21,10 @@ res = Net::HTTP.start(uri.hostname, 4000) {
 	 puts (output)
 	end
 	
+	puts "What would you like to do? "
+	command = gets();
+	puts "I don't know how to do " + command 
+	
 	
 	
 	

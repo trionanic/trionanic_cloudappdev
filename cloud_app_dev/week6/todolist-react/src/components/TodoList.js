@@ -46,7 +46,14 @@ function TodoList() {
 		</ul>
 	    
 	</div>
+	
 	)
+	
+	/* const todoItems = todoList.map(todo =>
+	 <li key={todo.id}>{todo.title} </li>	
+	 );
+	 
+    return ( <ul> {todoItems}</ul> ) */
 }
 	
 

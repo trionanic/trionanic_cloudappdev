@@ -2,7 +2,7 @@ class TodosController < ApplicationController
  
 protect_from_forgery unless: -> {request.format.json?}
   
-  before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[ show edit update complete destroy ]
 
   # GET /todos or /todos.json
   def index
@@ -59,6 +59,19 @@ protect_from_forgery unless: -> {request.format.json?}
       format.json { head :no_content }
     end
   end
+  
+  def complete 
+       puts "Completed action"
+       @todo = Todo.find(params[:id])
+	
+	   @todo.complete
+	   puts "the result is " + @todo.completed.to_s
+	  respond_to do |format|
+	   format.html { redirect_to todo_url(@todo), notice: "Todo was successfully completed." }
+	   format.json { render :show, status: :ok, location: @todo }
+	   end
+	   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -68,6 +81,6 @@ protect_from_forgery unless: -> {request.format.json?}
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.require(:todo).permit(:title, :completed)
-    end
+     params.require(:todo).permit(:title, :completed)
+   end
 end

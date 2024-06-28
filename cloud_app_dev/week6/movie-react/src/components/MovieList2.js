@@ -23,6 +23,7 @@ function MovieList2() {
     fetchData(); 
 	},[] );  // empty brackets in 2nd argument of useEffect 
 	         // means it will run only on the initial render
+	
 	const movieItems = movieList.map(movie =>
 	 <li key={movie.id}>{movie.title} </li>	
 	 );
