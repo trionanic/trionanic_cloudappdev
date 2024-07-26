@@ -1,3 +1,7 @@
 <h1>New review</h1>
-<%= render 'form' %>
+
+<%= render 'form', review: @review, movie: @movie %>
+
+</hr>
+
 <%= link_to 'Back', movie_reviews_path(@movie) %>

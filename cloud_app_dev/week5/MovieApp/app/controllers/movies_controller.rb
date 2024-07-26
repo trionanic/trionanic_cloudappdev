@@ -64,11 +64,10 @@ class MoviesController < ApplicationController
   	# DELETE /movies/1/reviews 
 	# delete all the reviews for a given movie
 	def delete_my_reviews
-		@movie = Movie.find(params[:movie_id])
-		@reviews = @movie.reviews
-		@reviews.destroy_all
+	    puts(" In the controller delete my reviews method")
+		@movie.delete_my_reviews
 		respond_to do |format|
-		format.html { redirect_to movie_reviews_path(@movie) }
+		format.html { redirect_to movie_url(@movie) , notice: "Reviews were successfully deleted" } 
 		format.xml { head :ok }
 	    end
     end

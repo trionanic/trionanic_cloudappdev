@@ -1,22 +1,27 @@
-<%= form_for([@movie, @review]) do |f| %>
-<% if @review.errors.any? %>
-<div id="error_explanation">
-<h2><%= pluralize(@review.errors.count, "error")%>
-prohibited this review from being saved:</h2>
-<ul>
-<% @review.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
+<%= form_for ([@movie ,@review]) do |f| %>
+ 
+<% if  @review.errors.any? %>
+<div id="error_explanation" style="color: red">
+  <h2><%= pluralize( @review.errors.count, "error")%> prevented this review from being saved:</h2>
+	<ul>
+		<%  @review.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</ul>
 </div>
 <% end %>
+
 <div class="field">
-<p>
-<%= f.label :Details %><br />
-<%= f.text_field :details %>
-</p>
+	<p>
+		<%= f.label :Details %><br />
+		<%= f.text_field :details %>
+	</p>
+	<p>
+		<%= f.label :Author %><br />
+		<%= f.text_field :author %>
+	</p>
 </div>
 <div class="actions">
-<%= f.submit %>
+	<%= f.submit %>
 </div>
 <% end %>

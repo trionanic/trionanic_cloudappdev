@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'reviews/edit'
   resources :movies do
   resources :reviews
+ 
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,8 +16,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   
- 
-  post '/movies/', :controller=>'movies', :action=>'delete_my_reviews'
+  
+ post '/movies/:id', :controller=>'movies', :action=>'delete_my_reviews'
   
   
 end

@@ -36,12 +36,12 @@ class ReviewsController < ApplicationController
 		# Populate an review associate with movie 1 with form data
 		# Movie will be associated with the review
 		# @review = @movie.reviews.build(params.require(:review).permit!)
-		@review = @movie.reviews.build(params.require(:review).permit(:details))
+		@review = @movie.reviews.build(review_params)
 		if @review.save
 			# Save the review successfully
 			redirect_to movie_review_url(@movie, @review)
 		else
-			render :action => "new"
+			 render :action => "new"
 		end
 	end
 
@@ -58,7 +58,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = Review.find(params[:id])
     
-    if @review.update(params.require(:review).permit(:details))
+    if @review.update(review_params)
       # Save the review successfully
       redirect_to movie_review_url(@movie, @review)
     else
@@ -77,7 +77,11 @@ class ReviewsController < ApplicationController
 	    end
     end
 	
-	
+	private
+	  # Only allow a list of trusted parameters through.
+    def review_params
+      params.require(:review).permit(:details, :author)
+    end
 	
 
 

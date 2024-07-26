@@ -14,7 +14,7 @@ function TodoList() {
 	
 	useEffect(() =>  {
         async function fetchData() {		
-		const response = await axios.get("http://localhost:4000/todos",
+		const response = await axios.get("http://3.93.135.162:3000/todos",
 		{headers : {Accept: "application/json"}});
 		
 		console.log(response.data)
